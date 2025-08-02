@@ -85,10 +85,10 @@ export default function Home() {
           alt="SAYAS Travel Kit lifestyle"
           layout="fill"
           objectFit="cover"
-          className="z-0"
+          className="z-0 blur-sm"
           data-ai-hint="travel kit"
         />
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/50 z-10" />
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold drop-shadow-lg">
             Style All Your Adventures Smartly
