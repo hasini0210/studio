@@ -47,6 +47,34 @@ export default function Header() {
             <span>SAYAS</span>
           </Link>
         </div>
+
+        <div className="flex-1 items-center justify-center hidden md:flex">
+             <nav className="flex items-center gap-6 text-sm font-medium">
+                {navLinks.slice(0, 5).map((link) => (
+                    <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                        'transition-colors hover:text-primary',
+                        pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                    )}
+                    >
+                    {link.label}
+                    </Link>
+                ))}
+                 <Link
+                    href="/contact"
+                    className={cn(
+                        'transition-colors hover:text-primary',
+                        pathname === "/contact" ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                    )}
+                    >
+                    Contact
+                </Link>
+            </nav>
+        </div>
+
+
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -80,22 +108,8 @@ export default function Header() {
             </SheetContent>
           </Sheet>
         </div>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium flex-1">
-          {navLinks.slice(0, 5).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'transition-colors hover:text-primary',
-                pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
 
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-2 md:flex-initial">
           <Button variant="ghost" size="icon" className="hidden md:inline-flex">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
