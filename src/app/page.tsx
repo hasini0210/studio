@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -80,12 +81,12 @@ export default function Home() {
     <div className="flex flex-col">
       <section className="relative h-[60vh] md:h-[80vh] w-full">
         <Image
-          src="https://placehold.co/1600x900.png"
+          src="https://storage.googleapis.com/monorepo-prod-project-resources/user-556488392184/1722421307689-s-l1200.webp"
           alt="SAYAS Travel Kit lifestyle"
           layout="fill"
           objectFit="cover"
           className="z-0"
-          data-ai-hint="travel lifestyle"
+          data-ai-hint="travel kit"
         />
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
@@ -102,7 +103,7 @@ export default function Home() {
             <Button asChild size="lg" variant="secondary" className="font-bold">
               <Link href="/build-a-kit">Build Your Kit</Link>
             </Button>
-            <Button asChild size="lg" variant="secondary" className="font-bold">
+            <Button asChild size="lg" variant="secondary" className="font-bold bg-blue-900 text-white hover:bg-blue-800">
               <Link href="/ai-assistant">AI Assistant</Link>
             </Button>
           </div>
