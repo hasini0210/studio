@@ -61,7 +61,7 @@ export default function Home() {
       location: 'Mumbai',
     },
     {
-      quote: 'I gifted a customized kit to my friend for his trekking trip. He absolutely loved the personal touch. Highly recommend SAYAS!',
+      quote: "I gifted a customized kit to my friend for his trekking trip. He absolutely loved the personal touch. Highly recommend SAYAS!",
       author: 'Rahul D.',
       location: 'Delhi',
     },
