@@ -66,7 +66,7 @@ export default function Home() {
       location: 'Delhi',
     },
     {
-      quote: 'The subscription box is a game-changer. I get to try new travel products every quarter. It\'s like a gift to myself!',
+      quote: "The subscription box is a game-changer. I get to try new travel products every quarter. It's like a gift to myself!",
       author: 'Ananya K.',
       location: 'Hyderabad',
     },
