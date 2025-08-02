@@ -22,6 +22,7 @@ import { ThemeToggle } from './theme-toggle';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Mountain } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
@@ -37,64 +38,25 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const navRef = useRef<HTMLDivElement>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+
+  useEffect(() => {
+    const activeLink = navRef.current?.querySelector('.active-link') as HTMLElement;
+    if (activeLink) {
+      setIndicatorStyle({
+        width: activeLink.offsetWidth,
+        left: activeLink.offsetLeft,
+      });
+    }
+  }, [pathname]);
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-16 items-center">
-        <div className="mr-auto flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <Mountain className="h-6 w-6" />
-            <span className="sm:inline-block">SAYAS</span>
-          </Link>
-        </div>
-
-        <div className="hidden md:flex justify-center flex-1">
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            {navLinks.slice(0, 5).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'transition-colors hover:text-primary nav-link-glow',
-                  pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        <div className="flex items-center gap-2 ml-auto">
-          <div className="hidden md:flex items-center gap-2">
-            <Button asChild>
-                <Link href="/contact">Contact</Link>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Search className="h-5 w-5" />
-              <span className="sr-only">Search</span>
-            </Button>
-            <Link href="/wishlist">
-              <Button variant="ghost" size="icon">
-                <Heart className="h-5 w-5" />
-                <span className="sr-only">Wishlist</span>
-              </Button>
-            </Link>
-            <Link href="/cart">
-              <Button variant="ghost" size="icon">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">Cart</span>
-              </Button>
-            </Link>
-            <Link href="/account">
-              <Button variant="ghost" size="icon">
-                <User className="h-5 w-5" />
-                <span className="sr-only">Account</span>
-              </Button>
-            </Link>
-          </div>
-          <ThemeToggle />
-          <div className="md:hidden">
+        {/* Mobile Menu (Left) */}
+        <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -129,7 +91,65 @@ export default function Header() {
                 </div>
               </SheetContent>
             </Sheet>
+        </div>
+
+        {/* Logo (Left on Desktop, Center on Mobile) */}
+        <div className="flex items-center gap-2 md:mr-6 flex-1 md:flex-initial">
+          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
+            <Mountain className="h-6 w-6" />
+            <span className="sm:inline-block">SAYAS</span>
+          </Link>
+        </div>
+
+        {/* Centered Navigation (Desktop) */}
+        <div className="hidden md:flex justify-center flex-1">
+           <nav ref={navRef} className="nav-container-wrapper">
+              {navLinks.slice(0, 5).map((link) => (
+                 <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                        "nav-link-item text-muted-foreground nav-link-glow",
+                        { 'active-link font-semibold text-primary': pathname === link.href }
+                    )}
+                >
+                    {link.label}
+                </Link>
+              ))}
+               <div className="active-nav-link-indicator" style={indicatorStyle} />
+            </nav>
+        </div>
+
+        {/* Action Icons & Theme Toggle (Right) */}
+        <div className="flex items-center gap-2 ml-auto">
+          <div className="hidden md:flex items-center gap-1">
+             <Button asChild>
+                <Link href="/contact">Contact</Link>
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Search className="h-5 w-5" />
+              <span className="sr-only">Search</span>
+            </Button>
+            <Link href="/wishlist">
+              <Button variant="ghost" size="icon">
+                <Heart className="h-5 w-5" />
+                <span className="sr-only">Wishlist</span>
+              </Button>
+            </Link>
+            <Link href="/cart">
+              <Button variant="ghost" size="icon">
+                <ShoppingCart className="h-5 w-5" />
+                <span className="sr-only">Cart</span>
+              </Button>
+            </Link>
+            <Link href="/account">
+              <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+                <span className="sr-only">Account</span>
+              </Button>
+            </Link>
           </div>
+          <ThemeToggle />
         </div>
       </div>
     </header>
