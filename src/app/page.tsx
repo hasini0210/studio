@@ -102,7 +102,7 @@ export default function Home() {
             <Button asChild size="lg" variant="secondary" className="font-bold">
               <Link href="/build-a-kit">Build Your Kit</Link>
             </Button>
-            <Button asChild size="lg" variant="default" className="font-bold bg-blue-800 hover:bg-blue-700 text-white">
+            <Button asChild size="lg" variant="secondary" className="font-bold">
               <Link href="/ai-assistant">AI Assistant</Link>
             </Button>
           </div>
