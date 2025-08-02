@@ -20,20 +20,19 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="order-1 md:order-2">
-              <Image 
-                src="https://placehold.co/600x400.png"
-                alt="Founders sketching ideas"
+              <Image
+                src="/images/team-photo.jpg"
+                alt="The SAYAS team working on travel kit ideas"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-xl"
-                data-ai-hint="team working"
               />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <Image 
+              <Image
                 src="https://placehold.co/600x400.png"
                 alt="A stylish and compact SAYAS kit"
                 width={600}
@@ -53,7 +52,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          
+
            <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <h2 className="text-3xl font-headline font-semibold mb-4">Founder’s Note</h2>
@@ -62,7 +61,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="order-1 md:order-2">
-              <Image 
+              <Image
                 src="https://placehold.co/600x400.png"
                 alt="Founder of SAYAS"
                 width={600}
