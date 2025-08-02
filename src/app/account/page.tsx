@@ -1,3 +1,6 @@
+
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -5,6 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { FileText, Heart, Home, LogOut, Package, User } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const accountNav = [
     { name: "Dashboard", href: "/account", icon: <User/> },
@@ -16,6 +21,8 @@ const accountNav = [
 ]
 
 export default function AccountPage() {
+    const pathname = usePathname();
+
   return (
     <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
@@ -25,7 +32,7 @@ export default function AccountPage() {
                         <nav className="flex flex-col gap-2">
                            {accountNav.map(item => (
                                <Link key={item.name} href={item.href}>
-                                    <Button variant={item.href === "/account" ? "secondary" : "ghost"} className="w-full justify-start gap-3">
+                                    <Button variant={pathname === item.href ? "secondary" : "ghost"} className="w-full justify-start gap-3">
                                         {item.icon}
                                         {item.name}
                                     </Button>
