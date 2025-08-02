@@ -7,13 +7,13 @@ import { ListFilter, Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const products = Array(9).fill({
+const products = Array(9).fill({}).map((_, i) => ({
   name: 'Curated Travel Kit',
   description: 'Essentials for your next trip.',
   price: '₹2,499',
-  image: 'https://placehold.co/400x400.png',
+  image: `/images/shop${i + 1}.jpg`,
   hint: 'travel product'
-});
+}));
 
 export default function ShopPage() {
   return (

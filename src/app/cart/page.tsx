@@ -7,8 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const cartItems = [
-    { name: "Women's Skincare Kit", price: 2999, quantity: 1, image: "https://placehold.co/100x100.png", hint: "skincare kit" },
-    { name: "Custom Trekking Kit", price: 3499, quantity: 1, image: "https://placehold.co/100x100.png", hint: "trekking gear" },
+    { name: "Women's Skincare Kit", price: 2999, quantity: 1, image: "/images/cart-item1.jpg", hint: "skincare kit" },
+    { name: "Custom Trekking Kit", price: 3499, quantity: 1, image: "/images/cart-item2.jpg", hint: "trekking gear" },
 ];
 
 export default function CartPage() {

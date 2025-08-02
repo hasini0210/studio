@@ -24,9 +24,9 @@ export default function SubscriptionsPage() {
   ];
 
   const pastBoxes = [
-    { name: "Monsoon Getaway", image: "https://placehold.co/400x300.png", hint: "rainy travel" },
-    { name: "Summer Beach Vibin'", image: "https://placehold.co/400x300.png", hint: "beach essentials" },
-    { name: "Winter Hiking Essentials", image: "https://placehold.co/400x300.png", hint: "winter hiking" }
+    { name: "Monsoon Getaway", image: "/images/sub-box1.jpg", hint: "rainy travel" },
+    { name: "Summer Beach Vibin'", image: "/images/sub-box2.jpg", hint: "beach essentials" },
+    { name: "Winter Hiking Essentials", image: "/images/sub-box3.jpg", hint: "winter hiking" }
   ];
 
   return (
@@ -48,7 +48,7 @@ export default function SubscriptionsPage() {
                         Our subscription service is designed to keep your travel bag stocked and ready for any impromptu trip. Each box is thoughtfully curated with a fun theme, featuring a mix of our most-loved essentials and new discoveries from partner brands. It's the perfect way to stay prepared and pamper yourself.
                     </p>
                 </div>
-                 <Image src="https://placehold.co/600x400.png" width={600} height={400} alt="Unboxing a subscription kit" className="object-cover h-full w-full rounded-r-lg" data-ai-hint="unboxing gift"/>
+                 <Image src="/images/sub-unboxing.jpg" width={600} height={400} alt="Unboxing a subscription kit" className="object-cover h-full w-full rounded-r-lg" data-ai-hint="unboxing gift"/>
             </div>
         </Card>
       </section>

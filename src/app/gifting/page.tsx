@@ -41,14 +41,14 @@ export default function GiftingPage() {
                         <div>
                             <RadioGroupItem value="botanical" id="botanical" className="peer sr-only" />
                             <Label htmlFor="botanical" className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-                                <Image src="https://placehold.co/200x150.png" width={200} height={150} alt="Botanical wrap" className="mb-2 rounded-sm" data-ai-hint="botanical pattern"/>
+                                <Image src="/images/wrap-botanical.jpg" width={200} height={150} alt="Botanical wrap" className="mb-2 rounded-sm" data-ai-hint="botanical pattern"/>
                                 Botanical Bliss
                             </Label>
                         </div>
                         <div>
                             <RadioGroupItem value="wanderlust" id="wanderlust" className="peer sr-only" />
                              <Label htmlFor="wanderlust" className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-                                <Image src="https://placehold.co/200x150.png" width={200} height={150} alt="Travel map wrap" className="mb-2 rounded-sm" data-ai-hint="map pattern"/>
+                                <Image src="/images/wrap-map.jpg" width={200} height={150} alt="Travel map wrap" className="mb-2 rounded-sm" data-ai-hint="map pattern"/>
                                 Wanderlust Map
                             </Label>
                         </div>
@@ -67,7 +67,7 @@ export default function GiftingPage() {
          <div className="sticky top-24">
              <h2 className="text-2xl font-headline font-semibold mb-4 text-center">Gift Preview</h2>
             <Card className="shadow-xl">
-                 <Image src="https://placehold.co/600x400.png" width={600} height={400} alt="Wrapped gift preview" className="rounded-t-lg" data-ai-hint="gift box"/>
+                 <Image src="/images/gift-preview.jpg" width={600} height={400} alt="Wrapped gift preview" className="rounded-t-lg" data-ai-hint="gift box"/>
                 <CardContent className="p-6">
                     <p className="italic text-muted-foreground">"Happy Birthday! Hope you have an amazing trip..."</p>
                     <p className="mt-4 font-semibold">Wrapped in: <span className="font-normal text-primary">Botanical Bliss</span></p>

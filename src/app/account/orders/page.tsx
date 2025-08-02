@@ -25,7 +25,7 @@ const pastOrders = [
         total: "₹3,499",
         status: "Delivered",
         items: [
-            { name: "Custom Trekking Kit", image: "https://placehold.co/100x100.png", hint: "trekking gear" }
+            { name: "Custom Trekking Kit", image: "/images/order-item1.jpg", hint: "trekking gear" }
         ],
         timeline: [
             { stage: "Order Placed", date: "June 12, 2024", completed: true},

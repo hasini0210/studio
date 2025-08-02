@@ -11,21 +11,21 @@ export default function Home() {
     {
       title: "Men's Kits",
       description: 'Shaving, grooming, first-aid, & hygiene essentials.',
-      image: 'https://placehold.co/600x400.png',
+      image: '/images/category-men.jpg',
       hint: 'men travel',
       link: '/shop/men',
     },
     {
       title: "Women's Kits",
       description: 'Skincare, lip care, hygiene, & haircare must-haves.',
-      image: 'https://placehold.co/600x400.png',
+      image: '/images/category-women.jpg',
       hint: 'women travel',
       link: '/shop/women',
     },
     {
       title: 'Purpose-Based Kits',
       description: 'For trekking, work trips, family travel, and more.',
-      image: 'https://placehold.co/600x400.png',
+      image: '/images/category-purpose.jpg',
       hint: 'adventure travel',
       link: '/shop/purpose',
     },
@@ -81,7 +81,7 @@ export default function Home() {
     <div className="flex flex-col">
       <section className="relative h-[60vh] md:h-[80vh] w-full">
         <Image
-          src="https://storage.googleapis.com/monorepo-prod-project-resources/user-556488392184/1722425576229-frame-9.png"
+          src="/images/herobanner.jpg"
           alt="SAYAS Travel Kit lifestyle"
           layout="fill"
           objectFit="cover"

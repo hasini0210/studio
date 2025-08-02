@@ -21,7 +21,7 @@ export default function AboutPage() {
             </div>
             <div className="order-1 md:order-2">
               <Image
-                src="/images/team-photo.jpg"
+                src="/images/about-story.jpg"
                 alt="The SAYAS team working on travel kit ideas"
                 width={600}
                 height={400}
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/images/about-kit.jpg"
                 alt="A stylish and compact SAYAS kit"
                 width={600}
                 height={400}
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </div>
             <div className="order-1 md:order-2">
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/images/about-founder.jpg"
                 alt="Founder of SAYAS"
                 width={600}
                 height={400}

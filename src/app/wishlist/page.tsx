@@ -5,9 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const wishlistItems = [
-    { name: "Men's Grooming Kit", price: "₹2,499", image: "https://placehold.co/400x400.png", hint: "men grooming" },
-    { name: "Family Vacation Kit", price: "₹4,999", image: "https://placehold.co/400x400.png", hint: "family vacation" },
-    { name: "Corporate Gift Set", price: "₹1,999", image: "https://placehold.co/400x400.png", hint: "corporate gift" },
+    { name: "Men's Grooming Kit", price: "₹2,499", image: "/images/wishlist1.jpg", hint: "men grooming" },
+    { name: "Family Vacation Kit", price: "₹4,999", image: "/images/wishlist2.jpg", hint: "family vacation" },
+    { name: "Corporate Gift Set", price: "₹1,999", image: "/images/wishlist3.jpg", hint: "corporate gift" },
 ];
 
 export default function WishlistPage() {
