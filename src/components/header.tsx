@@ -41,67 +41,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        {/* Left section: logo */}
-        <div className="mr-auto flex items-center">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <Mountain className="h-6 w-6" />
-            <span className="hidden sm:inline-block">SAYAS</span>
-          </Link>
-        </div>
-
-        {/* Center section: desktop navigation */}
-        <div className="hidden md:flex flex-1 justify-center">
-            <nav className="flex items-center gap-6 text-sm font-medium">
-                {navLinks.slice(0, 5).map((link) => (
-                <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                    'transition-colors hover:text-primary nav-link-glow',
-                    pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                    )}
-                >
-                    {link.label}
-                </Link>
-                ))}
-                <Link
-                href="/contact"
-                className={cn(
-                    'transition-colors hover:text-primary nav-link-glow',
-                    pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                )}
-                >
-                Contact
-                </Link>
-            </nav>
-        </div>
-
-        {/* Right section: icons and mobile menu */}
-        <div className="ml-auto flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="hidden md:inline-flex">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">Search</span>
-          </Button>
-          <Link href="/wishlist">
-            <Button variant="ghost" size="icon">
-              <Heart className="h-5 w-5" />
-              <span className="sr-only">Wishlist</span>
-            </Button>
-          </Link>
-          <Link href="/cart">
-            <Button variant="ghost" size="icon">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="sr-only">Cart</span>
-            </Button>
-          </Link>
-          <Link href="/account">
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
-              <span className="sr-only">Account</span>
-            </Button>
-          </Link>
-          <ThemeToggle />
-          <div className="md:hidden">
+        {/* Left section: logo & mobile menu trigger (on small screens) */}
+        <div className="flex items-center md:hidden">
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -136,7 +77,67 @@ export default function Header() {
                 </div>
               </SheetContent>
             </Sheet>
-          </div>
+        </div>
+        
+        {/* Center section: logo on mobile, logo+nav on desktop */}
+        <div className="flex-1 flex justify-center items-center md:justify-start">
+             <Link href="/" className="flex items-center gap-2 text-lg font-bold">
+                <Mountain className="h-6 w-6" />
+                <span className="inline-block">SAYAS</span>
+            </Link>
+            
+            <div className="hidden md:flex flex-1 justify-center">
+                <nav className="flex items-center gap-6 text-sm font-medium">
+                    {navLinks.slice(0, 5).map((link) => (
+                    <Link
+                        key={link.href}
+                        href={link.href}
+                        className={cn(
+                        'transition-colors hover:text-primary nav-link-glow',
+                        pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                        )}
+                    >
+                        {link.label}
+                    </Link>
+                    ))}
+                    <Link
+                    href="/contact"
+                    className={cn(
+                        'transition-colors hover:text-primary nav-link-glow',
+                        pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                    )}
+                    >
+                    Contact
+                    </Link>
+                </nav>
+            </div>
+        </div>
+
+        {/* Right section: icons */}
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="icon" className="hidden md:inline-flex">
+            <Search className="h-5 w-5" />
+            <span className="sr-only">Search</span>
+          </Button>
+          <Link href="/wishlist">
+            <Button variant="ghost" size="icon">
+              <Heart className="h-5 w-5" />
+              <span className="sr-only">Wishlist</span>
+            </Button>
+          </Link>
+          <Link href="/cart">
+            <Button variant="ghost" size="icon">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="sr-only">Cart</span>
+            </Button>
+          </Link>
+          <Link href="/account">
+            <Button variant="ghost" size="icon">
+              <User className="h-5 w-5" />
+              <span className="sr-only">Account</span>
+            </Button>
+          </Link>
+          <ThemeToggle />
         </div>
       </div>
     </header>
