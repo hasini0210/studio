@@ -40,87 +40,44 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        {/* Left section for mobile: menu trigger */}
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[300px]">
-              <SheetHeader>
-                <SheetTitle className="sr-only">Menu</SheetTitle>
-              </SheetHeader>
-              <div className="p-4">
-                <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
-                  <Mountain className="h-6 w-6" />
-                  SAYAS
+      <div className="container flex h-16 items-center">
+        {/* Left section: logo */}
+        <div className="mr-auto flex items-center">
+          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
+            <Mountain className="h-6 w-6" />
+            <span className="hidden sm:inline-block">SAYAS</span>
+          </Link>
+        </div>
+
+        {/* Center section: desktop navigation */}
+        <div className="hidden md:flex flex-1 justify-center">
+            <nav className="flex items-center gap-6 text-sm font-medium">
+                {navLinks.slice(0, 5).map((link) => (
+                <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                    'transition-colors hover:text-primary nav-link-glow',
+                    pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                    )}
+                >
+                    {link.label}
                 </Link>
-                <nav className="flex flex-col gap-1">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={cn(
-                        'flex items-center gap-3 rounded-md p-2 text-base font-medium transition-colors hover:bg-secondary',
-                        pathname === link.href ? 'bg-secondary text-primary' : 'text-muted-foreground'
-                      )}
-                    >
-                      {link.icon}
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-
-        {/* Left section for desktop: logo + nav */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <Mountain className="h-6 w-6" />
-            <span>SAYAS</span>
-          </Link>
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            {navLinks.slice(0, 5).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
+                ))}
+                <Link
+                href="/contact"
                 className={cn(
-                  'transition-colors hover:text-primary nav-link-glow',
-                  pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                    'transition-colors hover:text-primary nav-link-glow',
+                    pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
                 )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className={cn(
-                'transition-colors hover:text-primary nav-link-glow',
-                pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
-              )}
-            >
-              Contact
-            </Link>
-          </nav>
+                >
+                Contact
+                </Link>
+            </nav>
         </div>
 
-        {/* Center section for mobile: logo */}
-        <div className="md:hidden">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <Mountain className="h-6 w-6" />
-            <span>SAYAS</span>
-          </Link>
-        </div>
-
-
-        {/* Right section: icons */}
-        <div className="flex items-center justify-end gap-2">
+        {/* Right section: icons and mobile menu */}
+        <div className="ml-auto flex items-center gap-2">
           <Button variant="ghost" size="icon" className="hidden md:inline-flex">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
@@ -144,6 +101,42 @@ export default function Header() {
             </Button>
           </Link>
           <ThemeToggle />
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px]">
+                <SheetHeader>
+                  <SheetTitle className="sr-only">Menu</SheetTitle>
+                </SheetHeader>
+                <div className="p-4">
+                  <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
+                    <Mountain className="h-6 w-6" />
+                    SAYAS
+                  </Link>
+                  <nav className="flex flex-col gap-1">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={cn(
+                          'flex items-center gap-3 rounded-md p-2 text-base font-medium transition-colors hover:bg-secondary',
+                          pathname === link.href ? 'bg-secondary text-primary' : 'text-muted-foreground'
+                        )}
+                      >
+                        {link.icon}
+                        {link.label}
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
