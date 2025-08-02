@@ -121,19 +121,19 @@
   }
 
   .nav-link.active {
-    color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
   }
   
   .dark .nav-link.active {
-    color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
   }
 
   .nav-container-wrapper {
-    @apply relative flex h-12 items-center justify-center rounded-full bg-secondary p-1;
+    @apply relative flex h-12 items-center justify-center rounded-full bg-secondary/50 p-1;
   }
 
   .nav-link-item {
-    @apply relative z-10 flex h-10 items-center justify-center px-4;
+    @apply relative z-10 flex h-10 items-center justify-center px-4 text-muted-foreground;
   }
 
   .active-nav-link-indicator {
