@@ -179,11 +179,13 @@ export default function Home() {
                   <div className="p-1">
                     <Card className="h-full flex flex-col justify-between shadow-lg">
                       <CardContent className="p-6 flex-grow">
-                        <Star className="text-yellow-400 fill-yellow-400 mb-4" />
-                        <Star className="text-yellow-400 fill-yellow-400 mb-4" />
-                        <Star className="text-yellow-400 fill-yellow-400 mb-4" />
-                        <Star className="text-yellow-400 fill-yellow-400 mb-4" />
-                        <Star className="text-yellow-400 fill-yellow-400 mb-4" />
+                        <div className="flex mb-4">
+                          <Star className="text-yellow-400 fill-yellow-400" />
+                          <Star className="text-yellow-400 fill-yellow-400" />
+                          <Star className="text-yellow-400 fill-yellow-400" />
+                          <Star className="text-yellow-400 fill-yellow-400" />
+                          <Star className="text-yellow-400 fill-yellow-400" />
+                        </div>
                         <p className="text-lg italic">"{testimonial.quote}"</p>
                       </CardContent>
                       <CardFooter className="p-6 bg-secondary/50 rounded-b-lg">
