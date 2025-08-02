@@ -11,7 +11,6 @@ import {
   Menu,
   MessageSquareQuote,
   Search,
-  Settings,
   ShoppingCart,
   Sparkles,
   User,
@@ -22,6 +21,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from './theme-toggle';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Mountain } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
@@ -41,7 +41,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="text-2xl font-headline font-bold">
+        <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold">
+          <Mountain className="h-6 w-6" />
           SAYAS
         </Link>
         <nav className="hidden md:flex gap-6 items-center">
@@ -92,7 +93,10 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="p-4">
-                <h2 className="text-xl font-headline font-bold mb-6">SAYAS</h2>
+                <Link href="/" className="flex items-center gap-2 text-xl font-headline font-bold mb-6">
+                   <Mountain className="h-6 w-6" />
+                   SAYAS
+                </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <Link
