@@ -39,103 +39,97 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-16 items-center">
-        {/* Logo - Far Left */}
-        <Link href="/" className="flex items-center gap-2 text-lg font-bold mr-auto">
+        <div className="mr-auto flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
             <Mountain className="h-6 w-6" />
-            <span className="hidden sm:inline-block">SAYAS</span>
-        </Link>
-        
-        {/* Desktop Navigation - Centered */}
-        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
-            <nav className="flex items-center gap-6 text-sm font-medium">
-                {navLinks.slice(0, 5).map((link) => (
-                <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                    'transition-colors hover:text-primary nav-link-glow',
-                    pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                    )}
-                >
-                    {link.label}
-                </Link>
-                ))}
-                <Link
-                href="/contact"
-                className={cn(
-                    'transition-colors hover:text-primary nav-link-glow',
-                    pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                )}
-                >
-                Contact
-                </Link>
-            </nav>
+            <span className="sm:inline-block">SAYAS</span>
+          </Link>
         </div>
 
-        {/* Right section: icons */}
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="hidden md:inline-flex">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">Search</span>
-          </Button>
-          <Link href="/wishlist">
-            <Button variant="ghost" size="icon">
-              <Heart className="h-5 w-5" />
-              <span className="sr-only">Wishlist</span>
+        <div className="hidden md:flex justify-center flex-1">
+          <nav className="flex items-center gap-6 text-sm font-medium">
+            {navLinks.slice(0, 5).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'transition-colors hover:text-primary nav-link-glow',
+                  pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-2 ml-auto">
+          <div className="hidden md:flex items-center gap-2">
+            <Button asChild>
+                <Link href="/contact">Contact</Link>
             </Button>
-          </Link>
-          <Link href="/cart">
             <Button variant="ghost" size="icon">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="sr-only">Cart</span>
+              <Search className="h-5 w-5" />
+              <span className="sr-only">Search</span>
             </Button>
-          </Link>
-          <Link href="/account">
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
-              <span className="sr-only">Account</span>
-            </Button>
-          </Link>
+            <Link href="/wishlist">
+              <Button variant="ghost" size="icon">
+                <Heart className="h-5 w-5" />
+                <span className="sr-only">Wishlist</span>
+              </Button>
+            </Link>
+            <Link href="/cart">
+              <Button variant="ghost" size="icon">
+                <ShoppingCart className="h-5 w-5" />
+                <span className="sr-only">Cart</span>
+              </Button>
+            </Link>
+            <Link href="/account">
+              <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+                <span className="sr-only">Account</span>
+              </Button>
+            </Link>
+          </div>
           <ThemeToggle />
-           {/* Mobile Menu - Far right */}
-           <div className="md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="left" className="w-[300px]">
-                  <SheetHeader>
-                    <SheetTitle className="sr-only">Menu</SheetTitle>
-                  </SheetHeader>
-                  <div className="p-4">
-                    <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
-                      <Mountain className="h-6 w-6" />
-                      SAYAS
-                    </Link>
-                    <nav className="flex flex-col gap-1">
-                      {navLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className={cn(
-                            'flex items-center gap-3 rounded-md p-2 text-base font-medium transition-colors hover:bg-secondary',
-                            pathname === link.href ? 'bg-secondary text-primary' : 'text-muted-foreground'
-                          )}
-                        >
-                          {link.icon}
-                          {link.label}
-                        </Link>
-                      ))}
-                    </nav>
-                  </div>
-                </SheetContent>
-              </Sheet>
-           </div>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px]">
+                <SheetHeader>
+                   <SheetTitle className="sr-only">Menu</SheetTitle>
+                </SheetHeader>
+                <div className="p-4">
+                  <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
+                    <Mountain className="h-6 w-6" />
+                    SAYAS
+                  </Link>
+                  <nav className="flex flex-col gap-1">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={cn(
+                          'flex items-center gap-3 rounded-md p-2 text-base font-medium transition-colors hover:bg-secondary',
+                          pathname === link.href ? 'bg-secondary text-primary' : 'text-muted-foreground'
+                        )}
+                      >
+                        {link.icon}
+                        {link.label}
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
