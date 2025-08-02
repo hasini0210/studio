@@ -68,3 +68,12 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@layer utilities {
+  .nav-link-glow {
+    @apply transition-all duration-300;
+  }
+  .nav-link-glow:hover {
+    text-shadow: 0 0 8px hsl(var(--primary) / 0.5);
+  }
+}

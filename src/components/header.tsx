@@ -40,37 +40,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <div className="mr-auto flex items-center gap-4 md:mr-0 md:flex-1">
-           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <Mountain className="h-6 w-6" />
-            <span>SAYAS</span>
-          </Link>
-          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-            {navLinks.slice(0, 5).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'transition-colors hover:text-primary',
-                  pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className={cn(
-                'transition-colors hover:text-primary',
-                pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
-              )}
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
-
+      <div className="container flex h-16 items-center justify-between">
+        {/* Left section for mobile: menu trigger */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -81,7 +52,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px]">
               <SheetHeader>
-                 <SheetTitle className="sr-only">Menu</SheetTitle>
+                <SheetTitle className="sr-only">Menu</SheetTitle>
               </SheetHeader>
               <div className="p-4">
                 <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
@@ -108,7 +79,48 @@ export default function Header() {
           </Sheet>
         </div>
 
-        <div className="flex items-center justify-end gap-2 md:flex-initial">
+        {/* Left section for desktop: logo + nav */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
+            <Mountain className="h-6 w-6" />
+            <span>SAYAS</span>
+          </Link>
+          <nav className="flex items-center gap-6 text-sm font-medium">
+            {navLinks.slice(0, 5).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'transition-colors hover:text-primary nav-link-glow',
+                  pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              className={cn(
+                'transition-colors hover:text-primary nav-link-glow',
+                pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
+              )}
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
+
+        {/* Center section for mobile: logo */}
+        <div className="md:hidden">
+          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
+            <Mountain className="h-6 w-6" />
+            <span>SAYAS</span>
+          </Link>
+        </div>
+
+
+        {/* Right section: icons */}
+        <div className="flex items-center justify-end gap-2">
           <Button variant="ghost" size="icon" className="hidden md:inline-flex">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
