@@ -59,10 +59,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center gap-2 md:mr-6">
+        <div className="flex items-center gap-2 mr-auto md:mr-0">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
             <Mountain className="h-6 w-6" />
-            <span className="hidden sm:inline-block">SAYAS</span>
+            <span className="sm:inline-block">SAYAS</span>
           </Link>
         </div>
 
@@ -75,7 +75,7 @@ export default function Header() {
                     href={link.href}
                     className={cn(
                         "nav-link-item nav-link-glow",
-                        { 'active text-primary-foreground': pathname === link.href }
+                        { 'active': pathname === link.href }
                     )}
                 >
                     {link.label}
@@ -123,7 +123,7 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px]">
                     <SheetHeader>
-                    <SheetTitle className="sr-only">Menu</SheetTitle>
+                     <SheetTitle className="sr-only">Menu</SheetTitle>
                     </SheetHeader>
                     <div className="p-4">
                     <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">

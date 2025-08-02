@@ -133,7 +133,11 @@
   }
 
   .nav-link-item {
-    @apply relative z-10 flex h-10 items-center justify-center px-4 text-muted-foreground;
+    @apply relative z-10 flex h-10 items-center justify-center px-4 text-sm font-medium text-muted-foreground transition-colors duration-300;
+  }
+  
+  .nav-link-item.active {
+      color: hsl(var(--primary-foreground));
   }
 
   .active-nav-link-indicator {
