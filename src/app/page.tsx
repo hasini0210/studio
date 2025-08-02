@@ -81,7 +81,7 @@ export default function Home() {
     <div className="flex flex-col">
       <section className="relative h-[60vh] md:h-[80vh] w-full">
         <Image
-          src="https://storage.googleapis.com/monorepo-prod-project-resources/user-556488392184/1722421307689-s-l1200.webp"
+          src="https://storage.googleapis.com/monorepo-prod-project-resources/user-556488392184/1722425576229-frame-9.png"
           alt="SAYAS Travel Kit lifestyle"
           layout="fill"
           objectFit="cover"
