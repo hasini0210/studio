@@ -15,13 +15,13 @@ import {
   Sparkles,
   User,
   WandSparkles,
+  Luggage,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from './theme-toggle';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { Mountain } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 
 const navLinks = [
@@ -52,6 +52,11 @@ export default function Header() {
         width: activeLink.offsetWidth,
         left: activeLink.offsetLeft,
       });
+    } else {
+        setIndicatorStyle({
+            width: 0,
+            left: 0,
+        });
     }
   }, [pathname]);
 
@@ -59,29 +64,30 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center gap-2 mr-auto md:mr-0">
+        <div className="mr-auto flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-            <Mountain className="h-6 w-6" />
+            <Luggage className="h-6 w-6" />
             <span className="sm:inline-block">SAYAS</span>
           </Link>
         </div>
 
         {/* Centered Navigation (Desktop) */}
         <div className="hidden md:flex justify-center flex-1">
-           <nav ref={navRef} className="nav-container-wrapper">
+           <nav ref={navRef} className="nav-container">
               {navLinks.map((link) => (
-                 <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                        "nav-link-item nav-link-glow",
-                        { 'active': pathname === link.href }
-                    )}
-                >
-                    {link.label}
-                </Link>
+                 <div key={link.href} className={cn('nav-item-container', { 'active': pathname === link.href })}>
+                    <Link
+                        href={link.href}
+                        className={cn(
+                            "nav-item nav-link-glow",
+                            { 'active': pathname === link.href }
+                        )}
+                    >
+                        {link.label}
+                    </Link>
+                </div>
               ))}
-               <div className="active-nav-link-indicator" style={indicatorStyle} />
+               <div className="nav-item-background" style={indicatorStyle} />
             </nav>
         </div>
 
@@ -127,7 +133,7 @@ export default function Header() {
                     </SheetHeader>
                     <div className="p-4">
                     <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
-                        <Mountain className="h-6 w-6" />
+                        <Luggage className="h-6 w-6" />
                         SAYAS
                     </Link>
                     <nav className="flex flex-col gap-1">
