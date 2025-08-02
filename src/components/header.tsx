@@ -9,7 +9,7 @@ import {
   Info,
   Mail,
   Menu,
-  MessageSquareQuestion,
+  MessageSquareQuote,
   Search,
   Settings,
   ShoppingCart,
@@ -31,7 +31,7 @@ const navLinks = [
   { href: '/ai-assistant', label: 'AI Assistant', icon: <WandSparkles className="h-5 w-5" /> },
   { href: '/gifting', label: 'Gift Kits', icon: <Gift className="h-5 w-5" /> },
   { href: '/subscriptions', label: 'Subscriptions', icon: <Sparkles className="h-5 w-5" /> },
-  { href: '/faq', label: 'FAQ', icon: <MessageSquareQuestion className="h-5 w-5" /> },
+  { href: '/faq', label: 'FAQ', icon: <MessageSquareQuote className="h-5 w-5" /> },
   { href: '/contact', label: 'Contact', icon: <Mail className="h-5 w-5" /> },
 ];
 
