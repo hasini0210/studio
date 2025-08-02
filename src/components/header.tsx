@@ -17,7 +17,7 @@ import {
   WandSparkles,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from './theme-toggle';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -41,39 +41,35 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold">
+        <div className="mr-auto flex items-center gap-4 md:mr-0 md:flex-1">
+           <Link href="/" className="flex items-center gap-2 text-lg font-bold">
             <Mountain className="h-6 w-6" />
             <span>SAYAS</span>
           </Link>
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+            {navLinks.slice(0, 5).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'transition-colors hover:text-primary',
+                  pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              className={cn(
+                'transition-colors hover:text-primary',
+                pathname === '/contact' ? 'text-foreground font-semibold' : 'text-muted-foreground'
+              )}
+            >
+              Contact
+            </Link>
+          </nav>
         </div>
-
-        <div className="flex-1 items-center justify-center hidden md:flex">
-             <nav className="flex items-center gap-6 text-sm font-medium">
-                {navLinks.slice(0, 5).map((link) => (
-                    <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                        'transition-colors hover:text-primary',
-                        pathname === link.href ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                    )}
-                    >
-                    {link.label}
-                    </Link>
-                ))}
-                 <Link
-                    href="/contact"
-                    className={cn(
-                        'transition-colors hover:text-primary',
-                        pathname === "/contact" ? 'text-foreground font-semibold' : 'text-muted-foreground'
-                    )}
-                    >
-                    Contact
-                </Link>
-            </nav>
-        </div>
-
 
         <div className="md:hidden">
           <Sheet>
@@ -84,10 +80,13 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px]">
+              <SheetHeader>
+                 <SheetTitle className="sr-only">Menu</SheetTitle>
+              </SheetHeader>
               <div className="p-4">
                 <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-6">
-                   <Mountain className="h-6 w-6" />
-                   SAYAS
+                  <Mountain className="h-6 w-6" />
+                  SAYAS
                 </Link>
                 <nav className="flex flex-col gap-1">
                   {navLinks.map((link) => (
@@ -126,7 +125,7 @@ export default function Header() {
               <span className="sr-only">Cart</span>
             </Button>
           </Link>
-           <Link href="/account">
+          <Link href="/account">
             <Button variant="ghost" size="icon">
               <User className="h-5 w-5" />
               <span className="sr-only">Account</span>
